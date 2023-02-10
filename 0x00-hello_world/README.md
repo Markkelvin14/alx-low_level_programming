@@ -1,1 +1,1 @@
-a script that generates the assembly code of a C code and save it in an output file
+a C program that prints exactly "Programming is like building a multilingual puzzle
