@@ -5,14 +5,17 @@
  * main -Entry
  * Return: Answer
  */
+
 int main(void)
-{	
+{
 	char c;
+
 	c = 'a';
-	while(c <= 'z')
+
+	while (c <= 'z')
 	{
-		putchar (c);
-		c++;
+	putchar (c);
+	c++;
 	}
 	return (0);
-}	
+}
