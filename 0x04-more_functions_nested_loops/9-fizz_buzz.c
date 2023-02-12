@@ -3,7 +3,7 @@
 
 /**
  * main - prints the numbers from 1 - 100 followed by a new line
- * Return: 0
+ * Return: Always 0 (Success)
  */
 
 int main(void)
@@ -14,23 +14,19 @@ int main(void)
 	{
 		if (i % 3 == 0 && i % 5 == 0)
 		{
-			printf("Fizzbuzz");
+			printf("Fizzbuzz ");
 		}
 		else if (i % 3 == 0)
 		{
-			printf("Fizz");
+			printf("Fizz ");
 		}
 		else if (i % 5 == 0)
 		{
-			printf("Buzz");
+			printf("Buzz ");
 		}
 		else
 		{
-			printf("%d", i);
-		}
-		if (i != 100)
-		{
-			printf(" ");
+			printf("%d ", i);
 		}
 	}
 	printf("\n");
