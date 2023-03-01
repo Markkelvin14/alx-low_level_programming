@@ -2,7 +2,7 @@
 
 /**
  * cap_string - capitalizes all words of a string
- * @str: is the character
+ * @str: is a string
  * Return: str
  */
 
@@ -15,20 +15,20 @@ char *cap_string(char *str)
 		while (!(str[i] >= 'a' && str[i] <= 'Z'))
 			i++;
 		if (str[i - 1] == ' ' ||
-		str[i - 1] == '\t' ||
-		str[i - 1] == '\n' ||
-		str[i - 1] == ',' ||
-		str[i - 1] == ';' ||
-		str[i - 1] == '.' ||
-		str[i - 1] == '!' ||
-		str[i - 1] == '?' ||
-		str[i - 1] == '"' ||
-		str[i - 1] == '(' ||
-		str[i - 1] == ')' ||
-		str[i - 1] == '{' ||
-		str[i - 1] == '}' ||
-		i == 0)
-		str[i] -= 32;
+				str[i - 1] == '\t' ||
+				str[i - 1] == '\n' ||
+				str[i - 1] == ',' ||
+				str[i - 1] == ';' ||
+				str[i - 1] == '.' ||
+				str[i - 1] == '!' ||
+				str[i - 1] == '?' ||
+				str[i - 1] == '"' ||
+				str[i - 1] == '(' ||
+				str[i - 1] == ')' ||
+				str[i - 1] == '{' ||
+				str[i - 1] == '}' ||
+				i == 0)
+			str[i] -= 32;
 		i++;
 	}
 	return (str);
