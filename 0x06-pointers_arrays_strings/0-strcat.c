@@ -2,9 +2,9 @@
 
 /**
  * _strcat - a function that concatenates two strings
- * @dest: is a string 
+ * @dest: is a string
  * @src: is a string
- * Returns: dest
+ * Return: dest
  */
 
 char *_strcat(char *dest, char *src)
@@ -25,7 +25,5 @@ char *_strcat(char *dest, char *src)
 		m++;
 	}
 	dest[i] = '\0';
-
 	return (dest);
 }
-
