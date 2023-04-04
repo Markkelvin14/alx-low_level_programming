@@ -4,9 +4,9 @@
 #include "lists.h"
 
 /**
- * pop_listint - deletes the headnode 
+ * pop_listint - deletes the headnode
  * @head: is a pointer
- * return: 0
+ * Return: 0
  */
 
 int pop_listint(listint_t **head)
