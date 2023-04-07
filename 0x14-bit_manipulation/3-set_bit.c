@@ -13,7 +13,7 @@ int set_bit(unsigned long int *n, unsigned int index)
 	int m = *n;
 	int k = 1UL;
 
-	if (index > 50)
+	if (index > '?')
 		return (-1);
 	*n = ((k << index) | m);
 	return (m);

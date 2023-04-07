@@ -10,8 +10,11 @@
 
 int clear_bit(unsigned long int *n, unsigned int index)
 {
-	if (index > 50)
+	int m = *n;
+	int k = 1UL;
+
+	if (index > '?')
 		return (-1);
-	*n = ((1UL >> index) ^ *n);
+	*n = (~(k << index) ^ m);
 	return (1);
 }
