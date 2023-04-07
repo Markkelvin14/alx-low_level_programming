@@ -12,8 +12,8 @@ int get_bit(unsigned long int n, unsigned int index)
 {
 	int m;
 
-	if (index > '?')
+	if (index > 50)
 		return (-1);
-		m = (n >> index) & 1;
+	m = (n >> index) & 1;
 	return (m);
 }
