@@ -3,32 +3,29 @@
 #include "main.h"
 
 /**
- * create_file - creates a file
- * @filename: is a variable pointer to a file
+ * append_text_to_file - appends a test at the end of a file
+ * @filename: is a variable file pointer
  * @text_content: is a string
- * Return: -1
+ * Return: 1
  */
 
-int create_file(const char *filename, char *text_content)
+int append_text_to_file(const char *filename, char *text_content)
 {
 	int ptrfile;
-	int wrte;
 	int stn = 0;
+	int wrte;
 
 	if (filename == NULL)
 		return (-1);
-
 	if (text_content != NULL)
 	{
 		while (text_content[stn] > 0)
 			stn++;
 	}
-
-	ptrfile = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
+	ptrfile = open(filename, O_WRONLY | O_APPEND);
 	wrte = write(ptrfile, text_content, stn);
 	if (ptrfile == -1 || wrte == -1)
 		return (-1);
-
 	close(ptrfile);
 	return (1);
 }
