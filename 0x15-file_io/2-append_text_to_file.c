@@ -22,7 +22,7 @@ int append_text_to_file(const char *filename, char *text_content)
 		while (text_content[stn] > 0)
 			stn++;
 	}
-	ptrfile = open(filename, O_WRONLY & O_APPEND);
+	ptrfile = open(filename, O_WRONLY | O_APPEND);
 	wrte = write(ptrfile, text_content, stn);
 	if (ptrfile == -1 && wrte == -1)
 		return (-1);
