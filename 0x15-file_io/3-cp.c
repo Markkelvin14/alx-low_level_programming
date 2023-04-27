@@ -17,7 +17,6 @@ char *create_new_buf(char *filename)
 		exit(99);
 	}
 	return (temp_buf);
-	free(temp_buf);
 }
 /**
  * close_the_file - close file
@@ -26,9 +25,11 @@ char *create_new_buf(char *filename)
 
 void close_the_file(int ptrfile)
 {
-	/**int m;*/
+	int m;
 
-	if (close(ptrfile) == -1)
+	m = close(ptrfile);
+
+	if (m == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %d\n", ptrfile);
 		exit(100);
@@ -53,8 +54,35 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		dprintf("Usage: cp file_from file_to\n", STDERR_FILENO);
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
+	temp_buf = create_new_buf(argv[2]);
+	k = open(argv[1], O_RDONLY);
+	rd = read(k, temp_buf, 1024);
 
+	m = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+
+	do {
+		if (k == -1 || rd == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			free(temp_buf);
+			exit(98);
+}
+wrte = write(m, temp_buf, rd);
+if (m == -1 || wrte == -1)
+{
+	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+	free(temp_buf);
+	exit(99);
+}
+rd = read(k, temp_buf, 1024);
+m = open(argv[2], O_WRONLY | O_APPEND);
+} while (rd > 0);
+
+free(temp_buf);
+close_the_file(k);
+close_the_file(m);
+return (0);
 }
