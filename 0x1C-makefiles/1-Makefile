@@ -1,0 +1,9 @@
+# 1-Makefile
+
+# variables
+CC = gcc 
+SRC = main.c school.c
+
+# all: rebuilds the executable
+all:
+	$(CC) $(SRC) -o school

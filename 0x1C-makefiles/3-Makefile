@@ -1,0 +1,30 @@
+# 3-Makefile
+
+# Setting variables
+CC = gcc
+SRC = main.c school.c
+NAME = school
+OBJ = main.o school.o
+RM = rm -f
+
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+# This is declare to making this rules a prerequisite of the special target
+.PHONY: clean oclean fclean re
+
+# Deletes all Emacs and Vim temporary files along with the executable
+clean:
+	$(RM) *~ $(NAME)
+
+# Deletes the object files
+oclean:
+	$(RM) $(OBJ)
+
+# Deletes all Emacs and Vim temporary files, the executable and object files
+fclean:
+	$(RM) *~ $(NAME)
+	$(RM) $(OBJ)
+
+# Forces recompilation of all source files
+re: oclean all

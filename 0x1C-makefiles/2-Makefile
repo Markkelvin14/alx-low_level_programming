@@ -1,0 +1,11 @@
+# 1-Makefile
+
+# Setting variables
+CC = gcc
+SRC = main.c school.c
+OBJ = main.o school.o
+NAME = school
+
+# Rule all: uses variables for executable file
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
